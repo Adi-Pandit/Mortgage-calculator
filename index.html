@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="./index.css" />
+
+    <title>Frontend Mentor | Mortgage repayment calculator</title>
+  </head>
+  <body>
+    <div class="mortgage__container">
+      <div class="mortgage__card">
+        <div class="mortgage__calculator">
+          <div class="mortgage__calculator-heading">
+            <h1>Mortgage Calculator</h1>
+            <p id="clear-all">Clear All</p>
+          </div>
+
+          <form class="mortgage__calculator_form">
+            <div class="mortgage__calculator_form-group">
+              <label for="mortgage_amount">Mortgage Amount</label>
+              <div class="mortgage__calculator_form-icon_wrapper">
+                <svg
+                  id="currency-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                >
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="#4e6e7e"
+                    d="M112 160.4c0-35.5 28.8-64.4 64.4-64.4c6.9 0 13.8 1.1 20.4 3.3l81.2 27.1c16.8 5.6 34.9-3.5 40.5-20.2s-3.5-34.9-20.2-40.5L217 38.6c-13.1-4.4-26.8-6.6-40.6-6.6C105.5 32 48 89.5 48 160.4V224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H48v44.5c0 17.4-4.7 34.5-13.7 49.4L4.6 431.5c-5.9 9.9-6.1 22.2-.4 32.2S20.5 480 32 480H288c17.7 0 32-14.3 32-32s-14.3-32-32-32H88.5l.7-1.1C104.1 390 112 361.5 112 332.5V288H224c17.7 0 32-14.3 32-32s-14.3-32-32-32H112V160.4z"
+                  />
+                </svg>
+              </div>
+              <input
+                type="number"
+                name="mortgage_amount"
+                id="mortgage_amount"
+              />
+              <p
+                class="mortgage__calculator_form-error_message"
+                id="mortgage_amount_error_message"
+              ></p>
+            </div>
+
+            <div class="mortgage__calculator_form-group-two">
+              <div class="mortgage__calculator_form-group">
+                <label for="mortgage_term">Mortgage Term</label>
+                <div
+                  class="mortgage__calculator_form-group-two_inline-label-years"
+                  id="year-text-block"
+                >
+                  years
+                </div>
+                <input type="number" name="mortgage_term" id="mortgage_term" />
+                <p
+                  class="mortgage__calculator_form-error_message"
+                  id="mortgage_term_error_message"
+                ></p>
+              </div>
+
+              <div class="mortgage__calculator_form-group">
+                <label for="interest_rate">Interest Rate</label>
+                <div
+                  class="mortgage__calculator_form-group-two_inline_percentage_icon"
+                >
+                  <svg
+                    id="percentage-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 384 512"
+                  >
+                    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      fill="#4e6e7e"
+                      d="M374.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-320 320c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l320-320zM128 128A64 64 0 1 0 0 128a64 64 0 1 0 128 0zM384 384a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"
+                    />
+                  </svg>
+                </div>
+                <input type="number" name="interest_rate" id="interest_rate" />
+                <p
+                  class="mortgage__calculator_form-error_message"
+                  id="interest_rate_error_message"
+                ></p>
+              </div>
+            </div>
+
+            <div class="mortgage__calculator_form-group">
+              <label for="mortgage_type">Mortage Type</label>
+              <div
+                class="mortgage__calculator_form-group_radio"
+                style="margin-bottom: 0.7rem"
+              >
+                <input type="radio" name="mortgage_type" id="repayment" value="repayment" />
+                <label for="repayment">Repayment</label>
+              </div>
+              <div class="mortgage__calculator_form-group_radio">
+                <input type="radio" name="mortgage_type" id="interest_only" value="interest_only" />
+                <label for="interest_only">Interest Only</label>
+              </div>
+              <p
+                class="mortgage__calculator_form-error_message"
+                id="mortgage_type_error_message"
+              ></p>
+            </div>
+
+            <button type="button" id="mortgage__calculator-btn">
+              <img src="./assets/images/icon-calculator.svg" alt="calculator" />
+              Calculate Repayments
+            </button>
+          </form>
+        </div>
+
+        <div id="empty_result" class="mortgage__result_empty">
+          <img src="./assets/images/illustration-empty.svg" alt="empty" />
+          <h1>Results shown here</h1>
+          <p>
+            Complete the form and click "calculate repayments" to see what your
+            monthly repayments would be.
+          </p>
+        </div>
+
+        <div id="result" class="mortgage__result">
+          <h3>Your results</h3>
+          <p>
+            Your results are shown below based on the information you provided.
+            To adjust the results, edit the form and click "calculate
+            repayments" again.
+          </p>
+          <div class="mortgage__result-calculated_amount">
+            <div class="mortgage__result-calculated_amount-monthly">
+              <p>Your monthly repayments</p>
+              <div class="mortgage__result-calculated_amount-monthly_amt">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="hsl(61, 70%, 52%)"
+                    d="M112 160.4c0-35.5 28.8-64.4 64.4-64.4c6.9 0 13.8 1.1 20.4 3.3l81.2 27.1c16.8 5.6 34.9-3.5 40.5-20.2s-3.5-34.9-20.2-40.5L217 38.6c-13.1-4.4-26.8-6.6-40.6-6.6C105.5 32 48 89.5 48 160.4V224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H48v44.5c0 17.4-4.7 34.5-13.7 49.4L4.6 431.5c-5.9 9.9-6.1 22.2-.4 32.2S20.5 480 32 480H288c17.7 0 32-14.3 32-32s-14.3-32-32-32H88.5l.7-1.1C104.1 390 112 361.5 112 332.5V288H224c17.7 0 32-14.3 32-32s-14.3-32-32-32H112V160.4z"
+                  />
+                </svg>
+                <p id="mortgage_monthly_repayment"></p>
+              </div>
+            </div>
+            <hr>
+            <div class="mortgage__result-calculated_amount-yearly">
+              <p>Total you'll repay over the term</p>
+              <div class="mortgage__result-calculated_amount-yearly_amt">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="white"
+                    d="M112 160.4c0-35.5 28.8-64.4 64.4-64.4c6.9 0 13.8 1.1 20.4 3.3l81.2 27.1c16.8 5.6 34.9-3.5 40.5-20.2s-3.5-34.9-20.2-40.5L217 38.6c-13.1-4.4-26.8-6.6-40.6-6.6C105.5 32 48 89.5 48 160.4V224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H48v44.5c0 17.4-4.7 34.5-13.7 49.4L4.6 431.5c-5.9 9.9-6.1 22.2-.4 32.2S20.5 480 32 480H288c17.7 0 32-14.3 32-32s-14.3-32-32-32H88.5l.7-1.1C104.1 390 112 361.5 112 332.5V288H224c17.7 0 32-14.3 32-32s-14.3-32-32-32H112V160.4z"
+                  />
+                </svg>
+                <p id="mortgage_term_repayment"></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
