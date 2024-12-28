@@ -73,6 +73,7 @@ body {
   padding: 0.5rem;
   border-radius: 5px;
   font-family: plus-jakarta-sans;
+  cursor: pointer;
 }
 
 .mortgage__calculator_form-icon_wrapper {
@@ -107,6 +108,7 @@ input[type="number"]:focus {
   border-radius: 5px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 #mortgage_amount {
@@ -143,6 +145,7 @@ input[type="number"]:focus {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 
 .mortgage__calculator_form-group_radio:has(input[type="radio"]:checked) {
@@ -211,6 +214,7 @@ input[type="number"] {
   font-weight: 700;
   margin: 2rem 0 1.5rem;
   column-gap: 0.5rem;
+  cursor: pointer;
 }
 
 .mortgage__result_empty {
@@ -221,7 +225,7 @@ input[type="number"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 7rem;
+  padding: 7rem 1.5rem;
   border-radius: 0 20px 20px 55px;
   max-width: 50%;
 }
@@ -333,11 +337,68 @@ hr {
     width: 758px;
   }
 
+  .mortgage__card {
+    flex-direction: column;
+  }
+
+  .mortgage__calculator {
+    max-width: 100%;
+  }
+
   .mortgage__calculator_form-group-two_inline-label-years {
-    margin-left: 110px;
+    margin-left: 288px;
   }
 
   .mortgage__calculator_form-group-two_inline_percentage_icon {
-    margin-left: 129px;
+    margin-left: 307px;
+  }
+
+  .mortgage__result_empty {
+    padding: 3rem 1.5rem;
+  }
+
+  .mortgage__result_empty, .mortgage__result {
+    max-width: 100%;
+    border-radius: 0 0 20px 20px;
+  }
+
+  #mortgage_term, #interest_rate {
+    padding: 0.5rem 0rem;
+    text-indent: 0.5rem;
+  }
+}
+
+@media screen and  (max-width: 768px) {
+  .mortgage__container {
+    height: auto;
+  }
+
+  .mortgage__card {
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .mortgage__calculator {
+    max-width: 100%;
+  }
+
+  .mortgage__calculator_form-group-two_inline-label-years, .mortgage__calculator_form-group-two_inline_percentage_icon {
+    right: 0;
+    margin-right: 33px;
+    margin-left: 0;
+  }
+
+  .mortgage__calculator_form-group-two {
+    flex-direction: column;
+  }
+
+  .mortgage__result_empty {
+    padding: 3rem 1.5rem;
+  }
+
+  .mortgage__result_empty, .mortgage__result {
+    max-width: 100%;
+    border-radius: 0;
   }
 }
